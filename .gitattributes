@@ -1,0 +1,5 @@
+* text=auto eol=lf
+
+# Preserve imported asset checksums and the original documentation bytes.
+/public/** -text
+/docs/legacy/** -text
