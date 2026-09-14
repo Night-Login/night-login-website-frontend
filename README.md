@@ -70,3 +70,5 @@ Untuk preview hasil build: `pnpm start`. Server lokal default hanya mendengarkan
 Ini migrasi, bukan penambahan fitur. `/projects` tetap redirect ke `/coming-soon`; History, Guide, FAQ dashboard, contoh profil Talent Pool, dan statistik contoh dipertahankan sebagaimana sumber. Beberapa quick action dashboard masih menunjuk fitur yang belum ada. Chatbot tetap bergantung pada layanan eksternal lama.
 
 Rincian keputusan, versi dependencies, perubahan kompatibilitas, serta kebutuhan pengujian produksi ada di [catatan migrasi](docs/MIGRATION.md).
+
+Test
