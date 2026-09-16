@@ -1,5 +1,6 @@
 import AdminPageHeader from "@/components/Admin/ui/AdminPageHeader";
 import AdminContentContainer from "@/components/Admin/ui/AdminContentContainer";
+import UsersManager from "@/modules/admin/users/UsersManager";
 
 export default function UsersPage() {
   return (
@@ -8,7 +9,9 @@ export default function UsersPage() {
         title="Users Management"
         subtitle="Manage administrator accounts and system users."
       />
-      <AdminContentContainer emptyNotice="Users table will be displayed here." />
+      <AdminContentContainer>
+        <UsersManager />
+      </AdminContentContainer>
     </div>
   );
 }
