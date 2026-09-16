@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import DashboardLayout from "@/components/Layouts/DashboardLayout";
+import DashboardLayout from "@/components/Layouts/User/DashboardLayout";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return <DashboardLayout>{children}</DashboardLayout>;

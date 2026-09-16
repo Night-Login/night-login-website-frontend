@@ -25,8 +25,12 @@ export default function RoleBasedDashboard() {
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/requests/login");
+    } else if (status === "authenticated" && session?.user?.role === "admin") {
+      router.push("/admin");
+    } else if (status === "authenticated" && session?.user?.role === "leader") {
+      router.push("/leader");
     }
-  }, [status, router]);
+  }, [status, session, router]);
 
   if (status === "loading") {
     return <div className="p-8">Loading...</div>;
@@ -153,121 +157,6 @@ export default function RoleBasedDashboard() {
           ] as QuickAction[],
         };
 
-      case "admin":
-        return {
-          title: "Admin Dashboard",
-          subtitle: "Manage organization operations and members.",
-          stats: [
-            {
-              title: "Total Members",
-              value: "156",
-              icon: "👥",
-              color: "bg-blue-100",
-            },
-            {
-              title: "Active Projects",
-              value: "18",
-              icon: "📊",
-              color: "bg-green-100",
-            },
-            {
-              title: "Pending Requests",
-              value: "7",
-              icon: "⏳",
-              color: "bg-yellow-100",
-            },
-            {
-              title: "Completed This Month",
-              value: "12",
-              icon: "✅",
-              color: "bg-purple-100",
-            },
-          ] as DashboardStat[],
-          quickActions: [
-            {
-              title: "Manage Members",
-              description: "Add, remove, or edit member information",
-              icon: "👥",
-              href: "/dashboard/members",
-            },
-            {
-              title: "Project Requests",
-              description: "Review and approve project requests",
-              icon: "📋",
-              href: "/dashboard/requests",
-            },
-            {
-              title: "System Settings",
-              description: "Configure organization settings",
-              icon: "⚙️",
-              href: "/dashboard/settings",
-            },
-            {
-              title: "Analytics",
-              description: "View organization analytics",
-              icon: "📈",
-              href: "/dashboard/analytics",
-            },
-          ] as QuickAction[],
-        };
-
-      case "leader":
-        return {
-          title: "Leader Dashboard",
-          subtitle: "Strategic overview and organizational management.",
-          stats: [
-            {
-              title: "Total Revenue",
-              value: "$45K",
-              icon: "💰",
-              color: "bg-green-100",
-            },
-            {
-              title: "Active Projects",
-              value: "18",
-              icon: "📊",
-              color: "bg-blue-100",
-            },
-            {
-              title: "Team Members",
-              value: "156",
-              icon: "👥",
-              color: "bg-purple-100",
-            },
-            {
-              title: "Client Satisfaction",
-              value: "98%",
-              icon: "⭐",
-              color: "bg-yellow-100",
-            },
-          ] as DashboardStat[],
-          quickActions: [
-            {
-              title: "Strategic Overview",
-              description: "View high-level organizational metrics",
-              icon: "📊",
-              href: "/dashboard/overview",
-            },
-            {
-              title: "Financial Reports",
-              description: "Access financial statements and reports",
-              icon: "💼",
-              href: "/dashboard/finance",
-            },
-            {
-              title: "Team Management",
-              description: "Manage teams and allocate resources",
-              icon: "👥",
-              href: "/dashboard/teams",
-            },
-            {
-              title: "Decision Portal",
-              description: "Review and make strategic decisions",
-              icon: "🎯",
-              href: "/dashboard/decisions",
-            },
-          ] as QuickAction[],
-        };
 
       case "client":
         return {

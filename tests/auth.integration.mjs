@@ -174,6 +174,8 @@ test("dashboard URLs require authentication and preserve the callback path", asy
     "/dashboard/history",
     "/dashboard/guide",
     "/dashboard/faq",
+    "/admin",
+    "/leader",
   ]) {
     const response = await request(route);
     assert.equal(response.status, 307, route);
@@ -247,6 +249,8 @@ test("session updates ignore client-supplied roles and confirm onboarding with t
     "/dashboard/history",
     "/dashboard/guide",
     "/dashboard/faq",
+    "/admin",
+    "/leader",
   ]) {
     assert.equal((await request(route)).status, 200, route);
   }

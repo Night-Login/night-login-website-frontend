@@ -24,6 +24,21 @@ export const authOptions: NextAuthOptions = {
             throw new Error("Email and password are required");
           }
 
+          // Temporary dev login bypass
+          if (
+            process.env.NODE_ENV === "development" &&
+            credentials.password === "bypass"
+          ) {
+            return {
+              id: "dev-bypass-id",
+              email: credentials.email,
+              name: "Dev Bypass",
+              accessToken: "dev-bypass-token",
+              role: credentials.email.includes("admin") ? "admin" : (credentials.email.includes("leader") ? "leader" : "member"),
+              onboardingCompleted: true,
+            };
+          }
+
           // Call your backend API to validate credentials
           const response = await axios.post(
             `${backendUrl()}/api/v1/user/login`,
