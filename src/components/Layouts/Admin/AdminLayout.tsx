@@ -32,7 +32,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   
   return (
     <main className="flex min-h-screen">
-      <aside className="shrink-0 bg-white w-[285px] border-r-2 border-[#DEDEDE]/90 pt-[24.5px] px-[32px]">
+      <aside className="shrink-0 bg-white w-[285px] border-r-2 border-[#DEDEDE]/90 pt-[24.5px] px-[32px] sticky top-0 h-screen overflow-y-auto pb-8">
         <Link href={"/"}>
           <button
             className="font-semibold flex items-center gap-5 hover:text-red transition text-[14px] lg:text-[16px] mb-[15px]"
@@ -62,28 +62,40 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                   link="/admin"
                 />
                 <MenuItem
-                  title="Members"
-                  icon={pathname === "/admin/members" ? HistoryActive : History}
-                  active={pathname === "/admin/members"}
-                  link="/admin/members"
+                  title="Users"
+                  icon={pathname === "/admin/users" ? HistoryActive : History}
+                  active={pathname === "/admin/users"}
+                  link="/admin/users"
                 />
                 <MenuItem
-                  title="Project Requests"
-                  icon={pathname === "/admin/requests" ? RequestActive : Request}
-                  active={pathname === "/admin/requests"}
-                  link="/admin/requests"
+                  title="Talents"
+                  icon={pathname === "/admin/talents" ? RequestActive : Request}
+                  active={pathname === "/admin/talents"}
+                  link="/admin/talents"
                 />
                 <MenuItem
-                  title="Settings"
-                  icon={pathname === "/admin/settings" ? GuideActive : Guide}
-                  active={pathname === "/admin/settings"}
-                  link="/admin/settings"
+                  title="Projects"
+                  icon={pathname === "/admin/projects" ? GuideActive : Guide}
+                  active={pathname === "/admin/projects"}
+                  link="/admin/projects"
                 />
                 <MenuItem
-                  title="Analytics"
-                  icon={pathname === "/admin/analytics" ? FaqActive : Faq}
-                  active={pathname === "/admin/analytics"}
-                  link="/admin/analytics"
+                  title="Organizations"
+                  icon={pathname === "/admin/organizations" ? FaqActive : Faq}
+                  active={pathname === "/admin/organizations"}
+                  link="/admin/organizations"
+                />
+                <MenuItem
+                  title="Skills"
+                  icon={pathname === "/admin/skills" ? HistoryActive : History}
+                  active={pathname === "/admin/skills"}
+                  link="/admin/skills"
+                />
+                <MenuItem
+                  title="Grades"
+                  icon={pathname === "/admin/grades" ? RequestActive : Request}
+                  active={pathname === "/admin/grades"}
+                  link="/admin/grades"
                 />
               </>
             ) : (
@@ -136,7 +148,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           </button>
         </div>
       </aside>
-      <aside className="w-full">{children}</aside>
+      <section className="flex-1 min-w-0 bg-gray-50 min-h-screen">{children}</section>
     </main>
   );
 }
